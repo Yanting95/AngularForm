@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <h2 [ngStyle]="{'margin-bottom': '10px'}">Registration Form</h2>
+
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" [class.is-invalid]="employeeForm.controls.first_name.invalid && employeeForm.controls.first_name.touched" formControlName="first_name" class="form-control">
+      <div *ngIf="employeeForm.controls.first_name.invalid && employeeForm.controls.first_name.touched">
+        <small class="text-danger" *ngIf="employeeForm.controls.first_name.errors?.required">First name is required</small>
+      </div>
+      <label>Last Name</label>
+      <input type="text" [class.is-invalid]="employeeForm.controls.last_name.invalid && employeeForm.controls.last_name.touched" formControlName="last_name" class="form-control">
+      <div *ngIf="employeeForm.controls.last_name.invalid && employeeForm.controls.last_name.touched">
+        <small class="text-danger" *ngIf="employeeForm.controls.last_name.errors?.required">Last name is required</small>
+      </div>
+      <label>Salary</label>
+      <input type="text" [class.is-invalid]="employeeForm.controls.salary.invalid && employeeForm.controls.salary.touched" formControlName="salary" class="form-control">
+      <div *ngIf="employeeForm.controls.salary.invalid && employeeForm.controls.salary.touched">
+        <small class="text-danger" *ngIf="employeeForm.controls.salary.errors?.required">Salary is required</small>
+      </div>
+      <label>Department</label>
+      <input type="text" [class.is-invalid]="employeeForm.controls.department.invalid && employeeForm.controls.department.touched" formControlName="department" class="form-control">
+      <div *ngIf="employeeForm.controls.department.invalid && employeeForm.controls.department.touched">
+        <small class="text-danger" *ngIf="employeeForm.controls.department.errors?.required">Department is required</small>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" [disabled]="!employeeForm.valid" type="submit">Add</button>
+  </form>
+</div>

@@ -1,0 +1,30 @@
+
+<h2 [ngStyle]="{'text-align':'center', 'margin-bottom':'20px'}">Employee List</h2>
+<h3>{{errorMsg}}</h3>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Salary</th>
+    <th>Department</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let employee of employees; let i = index" >
+    <td (click)="onSelect(employee)">{{employee.id}}</td>
+    <td (click)="detail(employee)">{{employee.first_name | namecapital}}</td>
+    <td>{{employee.last_name | namecapital}}</td>
+    <td>{{employee.salary | currency}}</td>
+    <td>{{employee.department | uppercase}}</td>
+    <td>
+      <span [ngStyle]="{'margin-right': '20px'}"><button class="btn" (click)="edit(employee)">Edit</button></span>
+      <span><button class="btn" (click)="delete(employee.id, i)">Delete</button></span>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<button class="btn" (click)="create()">Add</button>
+

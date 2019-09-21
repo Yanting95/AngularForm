@@ -1,0 +1,11 @@
+<h2 [ngStyle]="{'margin-bottom':'20px'}">Employee Detail</h2>
+<p>Employee Id: {{employee.id}}</p>
+<p>Name: {{employee.first_name | namecapital}} {{employee.last_name | namecapital}}</p>
+<p>Salary: {{employee.salary | currency}}</p>
+<p>Department: {{employee.department | uppercase}}</p>
+
+<router-outlet></router-outlet>
+
+<div>
+  <button class="btn" (click)="goBack()">Back to Employee List</button>
+</div>
